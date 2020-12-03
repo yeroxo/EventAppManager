@@ -14,18 +14,18 @@
         <div class="item" th:id="${item.id} + -item" th:each="item : ${items}">
             <p class="item__description" th:text="${item.name}">Text</p>
             <div class="item__check">
-                <button class="item__check-btn"  th:attr="data-post-id=${item.id},data-status=${item.getStatus()}">Купленно</button>
+                <button class="item__check-btn"  th:attr="data-post-id=${item.id},data-status=${item.getStatus()}">Куплено</button>
                 <div class="item__check-item" th:id="${item.id} + -status-button" th:text="${item.getStatus()} ? '+' : '-'">Text</div>
             </div>
             <button class="item__delete-btn" th:id="${item.id} + -delete-button" th:attr="data-post-id=${item.id}">
-                <img src="https://icons.iconarchive.com/icons/wwalczyszyn/android-style/16/Trash-empty-icon.png">
+                <img src="https://icons.iconarchive.com/icons/wwalczyszyn/android-style/16/Trash-empty-icon.png"/>
             </button>
         </div>
         <form class="add-new-item-form" action="/item/add" method="post">
             <div class="add-item">
-                <input name="description" type="text" class="add-item__description">
+                <input name="description" type="text" class="add-item__description"/>
             </div>
-            <input type="submit" id="item_submit" value="добавить">
+            <input type="submit" id="item_submit" value="добавить"/>
         </form>
         <div id="item_add">
             <p>+</p>

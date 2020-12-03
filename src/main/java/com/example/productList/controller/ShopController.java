@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,9 +17,9 @@ public class ShopController {
 
     @ResponseBody
     @RequestMapping(path = "/item/add", method = RequestMethod.POST)
-    public String add(@ModelAttribute("description") String text) {
+    public ModelAndView  add(@ModelAttribute("description") String text) {
         shopService.create(text);
-        return "redirect:/";
+        return new ModelAndView("redirect:/");
     }
 
     @ResponseBody

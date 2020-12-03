@@ -9,20 +9,27 @@ import java.util.Optional;
 
 @Service
 public class ShopService {
-    @Autowired
+
     private ItemRepo itemRepo;
+
+    @Autowired
+    public ShopService(ItemRepo itemRepo) {
+        this.itemRepo = itemRepo;
+    }
 
     public Iterable<ShopItem> listAllItems() {
         return itemRepo.findAll();
     }
 
-    public void create(String text) {
+    public ShopItem create(String text) {
         ShopItem item = new ShopItem(null,text);
         itemRepo.save(item);
+        return item;
     }
 
-    public void remove(Long id) {
+    public Boolean remove(Long id) {
         itemRepo.deleteById(id);
+        return true;
     }
 
     public ShopItem getItem(Long id) {
