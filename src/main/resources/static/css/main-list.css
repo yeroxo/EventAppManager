@@ -1,9 +1,13 @@
-.body{
+.body {
     margin: 0px;
     padding: 0px;
 }
 
-#item_add{
+.p {
+    margin-left: 10px;
+}
+
+#item_add {
     display: flex;
     border: 1px solid black;
     height: 25px;
@@ -16,26 +20,36 @@
     font-weight: bold;
 }
 
-.item{
+.item {
+    padding-left: 8px;
+    padding-right: 8px;
     margin-top: 10px;
     display: flex;
     border: 1px solid black;
-    height: 50px;
+    height: auto;
+    padding-bottom: 5px;
+    padding-top: 5px;
     border-radius: 10px;
     align-items: center;
     margin-right: 30px;
 }
-.item__description{
+
+.item__description {
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
     margin-left: 10px;
     margin-right: auto;
     font-size: 20px;
     color: black;
 }
-.item__buy-icon{
+
+.item__buy-icon {
     width: 40px;
     height: 40px;
 }
-.item__check{
+
+.item__check {
     height: 100%;
     display: flex;
     align-items: center;
@@ -43,7 +57,7 @@
     border-right: 1px solid black;
 }
 
-.item__check-btn{
+.item__check-btn {
     background: none;
     border: none;
 }
@@ -53,13 +67,13 @@
     border: none;
 }
 
-.item__delete-btn svg{
+.item__delete-btn svg {
     margin-top: 4px;
     width: 40px;
     height: 40px;
 }
 
-.add-item{
+.add-item {
     margin-top: 10px;
     display: flex;
     border: 1px solid black;
@@ -68,16 +82,17 @@
     align-items: center;
 }
 
-.add-item__description{
+.add-item__description {
     margin-left: 20px;
     font-size: 20px;
     color: black;
 }
 
-.add-new-item-form{
+.add-new-item-form {
     margin-right: 30px;
 }
-#item_submit{
+
+#item_submit {
     width: 100%;
     background: none;
     border: 1px solid black;
@@ -88,6 +103,16 @@
     font-weight: bold;
 }
 
-.add-new-item-form{
+.add-new-item-form {
     display: none;
+}
+
+.update-item-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#item_update {
+    margin: 20px;
 }

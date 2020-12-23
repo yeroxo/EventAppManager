@@ -31,6 +31,7 @@ class ProductListApplicationTests {
 				.andDo(print())
 				.andExpect(status().isOk())
 				.andExpect(content().string(containsString("Список покупок")));
+
 		this.mockMvc.perform(delete("/item/delete/1"))
 				.andDo(print())
 				.andExpect(status().isOk());

@@ -12,10 +12,11 @@ window.onload = function() {
        }
        xhr.send();
        function change(state){
-           state == false ? $("#"+ postId + "-status-button").text("-") : $("#"+ postId + "-status-button").text("+");
+           state == false ? $("#"+ postId + "-status-button").text("Активно") : $("#"+ postId + "-status-button").text("Закончено");
        }
 
    });
+
 
    $(".item__delete-btn").click((e) => {
          var btn = $(e.currentTarget);
