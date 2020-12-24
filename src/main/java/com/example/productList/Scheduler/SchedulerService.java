@@ -52,13 +52,15 @@ public class SchedulerService {
                         try {
                             String message = "";
                             if (start) {
-                                message = "Dear " + user.getLogin() + " your event " + eventItem.getName() + " is start right now";
+                                message = "Dear " + user.getLogin() + " your event " + eventItem.getName() + " waiting to complete";
                             } else {
                                 message = "Dear " + user.getLogin() + " your event " + eventItem.getName() + " is over";
                             }
                             emailService.send(user.getEmail(), "Event APP", message);
                             logger.info("Email have been sent. User id: {}, Date: {}", user.getId(), date);
-                            eventItem.setStatus(!eventItem.getStatus());
+                            if (!start){
+                                eventItem.setStatus(!eventItem.getStatus());
+                            }
                             itemRepo.save(eventItem);
                         } catch (Exception e) {
                             logger.error("Email can't be sent.User's id: {}, Error: {}", user.getId(), e.getMessage());
