@@ -1,38 +1,31 @@
 package com.example.productList.model;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class MyUser {
+public class MyUser{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     private String login;
     private String password;
-    private String position;
+    private String email;
     private String role;
-
-    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    private List<EventItem> events;
-
-    public void addEvent(EventItem event){
-        this.events.add(event);
-    }
-
-    public void removeEvent(EventItem event){
-        this.events.remove(event);
-    }
 
     public MyUser() {
 
     }
 
-    public MyUser(String login, String password) {
+    public MyUser(String login, String password,String email) {
         this.login = login;
         this.password = password;
         this.role = "USER";
-        this.position = "default";
+        this.email = email;
     }
 
     public String getLogin() {
@@ -43,25 +36,13 @@ public class MyUser {
         this.login = login;
     }
 
-//    public List<EventItem> getEvents(){ return events; }
-//
-//    public void setEvent(EventItem event){
-//        this.events.add(event);
-//    }
-
-    public String getPosition() {
-        return position;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setEmail(String email) {
+        this.email = email;
     }
-
-    public List<EventItem> getEvents() { return events; }
-
-    public EventItem getEventById(Long id) {return events.get(id.intValue());}
-
-    public void setEvents(List<EventItem> events) { this.events = events; }
 
     public String getPassword() {
         return password;
@@ -71,7 +52,6 @@ public class MyUser {
         this.password = password;
     }
 
-
     public long getId() {
         return id;
     }
@@ -79,7 +59,6 @@ public class MyUser {
     public void setId(long id) {
         this.id = id;
     }
-
 
     public String getRole() {
         return role;

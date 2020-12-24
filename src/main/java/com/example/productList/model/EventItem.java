@@ -2,9 +2,7 @@ package com.example.productList.model;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Locale;
 
@@ -20,14 +18,19 @@ public class EventItem implements Serializable {
     private Date end;
     private boolean status;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private MyUser author;
+
     public EventItem() {
     }
 
-    public EventItem(Long id, String name, Date start, Date end) {
+    public EventItem(Long id, String name, Date start, Date end,MyUser author) {
         this.id = id;
         this.name = name;
         this.start = start;
         this.end = end;
+        this.author = author;
         status = false;
     }
 
@@ -45,10 +48,17 @@ public class EventItem implements Serializable {
 
     public String getStart() { return start.toString().substring(0,start.toString().length()-5); }
 
+    public MyUser getAuthor(){return author;}
+
     public String getEndFormatted() {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm", Locale.ENGLISH);
         return format.format(this.end);
     }
+
+    public Date getFullEnd(){
+        return this.end;
+    }
+
     public String getStartFormatted() {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm", Locale.ENGLISH);
         return format.format(this.start);
