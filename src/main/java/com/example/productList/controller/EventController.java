@@ -6,7 +6,6 @@ import com.example.productList.repos.MyUserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -17,9 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.text.ParseException;
 
 @Controller
-public class ShopController {
+public class EventController {
 
-    Logger logger = LoggerFactory.getLogger(ShopController.class);
+    Logger logger = LoggerFactory.getLogger(EventController.class);
     @Autowired
     EventService eventService;
     @Autowired
